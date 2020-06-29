@@ -2,12 +2,12 @@
 let imageData = [];
 
 //there are 2 calls being made because each call returns 30 photos
-let call1 = fetch(`https://api.unsplash.com/search/photos?client_id=4SWIpzz-ZrDk8XREmTZZb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=1`
+let call1 = fetch(`https://api.unsplash.com/search/photos?client_id=4SWIpzz-ZrDk8XREmTZZAmYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=1`
 ).then(res => res.json())
   .then((data) => {
     imageData.push(...data.results)
   })
-let call2 = fetch(`https://api.unsplash.com/search/photos?client_id=4SWIpzz-ZrDk8XREmTZZb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=2`
+let call2 = fetch(`https://api.unsplash.com/search/photos?client_id=4SWIpzz-ZrDk8XREZZAmYYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=2`
 ).then(res => res.json())
   .then((data) => {
     imageData.push(...data.results)
