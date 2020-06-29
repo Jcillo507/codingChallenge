@@ -10,20 +10,58 @@
 .root {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .image-thumbnail {
   display: block;
-  height: 250px;
+  height: auto;
   width: 250px;
   margin: 20px;
   border: 5px rgb(92, 90, 90) solid;
   border-radius: 3px;
 }
 
+.image-thumbnail:hover{
+    opacity: 0.7;  
+}
+
 .btn-ctr {
   text-align: center;
   margin-top: 10px;
   font-size: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-title {
+    font-size: 60px;
+  }
+  .image-thumbnail {
+    height: auto;
+    width: 550px;
+    margin: 30px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .header-title {
+    font-size: 80px;
+  }
+  .image-thumbnail {
+    height: auto;
+    width: 750px;
+    margin: 35px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+.root{
+  flex-direction: row;
+  justify-content: center;
+}
+  .image-thumbnail {
+    height: auto;
+    width: 600px;
+    margin: 40px;
+  }
 }

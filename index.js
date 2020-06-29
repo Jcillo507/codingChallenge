@@ -6,6 +6,7 @@ let call1 = fetch(`https://api.unsplash.com/search/photos?client_id=WIpzz-ZrDk8X
   .then((data) => {
     imageData.push(...data.results)
   })
+
 let call2 = fetch(`https://api.unsplash.com/search/photos?client_id=WIpzz-ZrDk8XREmTZZAmYYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=2`
 ).then(res => res.json())
   .then((data) => {
@@ -16,7 +17,6 @@ let currentPage = 1;
 let imagesPerPage = 10;
 
 const createPage = (page)=> {
-  console.log(imageData)
   let nextBttn = document.getElementById("nextBttn");
   let prevBttn = document.getElementById("prevBttn");
   let root = document.getElementById("root");
@@ -25,11 +25,12 @@ const createPage = (page)=> {
   if (page > numPages()) page = numPages();
   root.innerHTML = "";
   for (let i = (page - 1) * imagesPerPage; i < (page * imagesPerPage) && i < imageData.length; i++) {
-    console.log(imageData[i].id)
+    console.log(imageData[i])
     const createImage = document.createElement('img')
     createImage.src = imageData[i].urls.small
     createImage.setAttribute('class', 'image-thumbnail')
     createImage.setAttribute('id',imageData[i].id)
+    createImage.setAttribute('alt', imageData[i].alt_description)
      root.appendChild(createImage)
     const getImage = document.getElementById(imageData[i].id)
     getImage.addEventListener('click', ()=>{
