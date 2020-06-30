@@ -35,6 +35,14 @@ const createPage = (page)=> {
     const getImage = document.getElementById(imageData[i].id)
     getImage.addEventListener('click', ()=>{
       console.log(imageData[i].id)
+      const modal = document.getElementById('modal')
+      modal.style.display = 'block'
+      getImage.setAttribute('class', 'modal-img')
+      const close = document.getElementById('close-btn')
+      close.addEventListener('click', ()=>{
+        modal.style.display='none'
+        getImage.setAttribute('class', 'image-thumbnail')
+      })
     })
   }
   
