@@ -1,80 +1,87 @@
 let imageData = [];
-
-//there are 2 calls being made because each call returns 30 photos
-let call1 = fetch(`https://api.unsplash.com/search/photos?client_id=WIpzz-ZrDk8XREmTZZAmYYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=1`
-).then(res => res.json())
-  .then((data) => {
-    imageData.push(...data.results)
-  })
-
-let call2 = fetch(`https://api.unsplash.com/search/photos?client_id=WIpzz-ZrDk8XREmTZZAmYYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=2`
-).then(res => res.json())
-  .then((data) => {
-    imageData.push(...data.results)
-  })
-
 let currentPage = 1;
 let imagesPerPage = 10;
 
-const createPage = (page)=> {
-  let nextBttn = document.getElementById("nextBttn");
-  let prevBttn = document.getElementById("prevBttn");
-  let root = document.getElementById("root");
-  let pageCount = document.getElementById("page");
+//there are 2 calls being made because each call returns 30 photos
+let call1 = fetch(`https://api.unsplash.com/search/photos?client_id=4SWIpzz-ZrDk8XREmTZZAmYYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=1`
+).then(res => res.json())
+  .then((data) => {
+    imageData.push(...data.results)
+  })
+
+let call2 = fetch(`https://api.unsplash.com/search/photos?client_id=4SWIpzz-ZrDk8XREmTZZAmYYb-819DU3txSfFnVBxMQ&query=puppies&per_page=50/&page=2`
+).then(res => res.json())
+  .then((data) => {
+    imageData.push(...data.results)
+  })
+
+const createPage = (page) => {
+  console.log(imageData)
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  const root = document.getElementById('root');
+  const pageNumber = document.getElementById('page-number');
+  const modal = document.getElementById('modal')
+  const modalImg = document.getElementById('modal-img')
+
   if (page < 1) page = 1;
   if (page > numPages()) page = numPages();
-  root.innerHTML = "";
+
+  root.innerHTML = '';
+
   for (let i = (page - 1) * imagesPerPage; i < (page * imagesPerPage) && i < imageData.length; i++) {
-    console.log(imageData[i])
-    const createImage = document.createElement('img')
-    createImage.src = imageData[i].urls.small
-    createImage.setAttribute('class', 'image-thumbnail')
-    createImage.setAttribute('id',imageData[i].id)
-    createImage.setAttribute('alt', imageData[i].alt_description)
-     root.appendChild(createImage)
+    const createImg = document.createElement('img')
+    createImg.src = imageData[i].urls.full
+    createImg.setAttribute('class', 'image-thumbnail')
+    createImg.setAttribute('id', imageData[i].id)
+    createImg.setAttribute('alt', imageData[i].alt_description)
+    root.appendChild(createImg)
     const getImage = document.getElementById(imageData[i].id)
-    getImage.addEventListener('click', ()=>{
-      console.log(imageData[i].id)
-      const modal = document.getElementById('modal')
+    getImage.addEventListener('click', () => {
       modal.style.display = 'block'
-      getImage.setAttribute('class', 'modal-img')
-      const close = document.getElementById('close-btn')
-      close.addEventListener('click', ()=>{
-        modal.style.display='none'
-        getImage.setAttribute('class', 'image-thumbnail')
-      })
+      modalImg.src = imageData[i].urls.full
+      if(imageData[i].height>3000){
+      modalImg.setAttribute('class', 'image-modal-tall')}
+      else{
+      modalImg.setAttribute('class', 'image-modal')}
+    })
+    const closeBtn = document.getElementById('close-btn')
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none'
     })
   }
-  
-  pageCount.innerHTML = page + "/" + numPages();
-//button visibility
+
+  pageNumber.innerHTML = page + '/' + numPages();
+
   if (page == 1) {
-    prevBttn.style.visibility = "hidden";
+    prevBtn.style.visibility = 'hidden';
   } else {
-    prevBttn.style.visibility = "visible";
+    prevBtn.style.visibility = 'visible';
   }
 
   if (page == numPages()) {
-    nextBttn.style.visibility = "hidden";
+    nextBtn.style.visibility = 'hidden';
   } else {
-    nextBttn.style.visibility = "visible";
+    nextBtn.style.visibility = 'visible';
   }
 }
-//pagination helpers
-const prevPage = ()=> {
+
+const numPages = () => {
+  return Math.ceil(imageData.length / imagesPerPage);
+}
+
+const prevPage = () => {
   if (currentPage > 1) {
     currentPage--;
     createPage(currentPage);
   }
 }
-const nextPage = () =>{
+
+const nextPage = () => {
   if (currentPage < numPages()) {
     currentPage++;
     createPage(currentPage);
   }
-}
-const numPages = () => {
-  return Math.ceil(imageData.length / imagesPerPage);
 }
 
 Promise.all([call1, call2]).then(() => createPage(1));

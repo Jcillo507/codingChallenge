@@ -7,7 +7,7 @@
   font-size: 40px;
 }
 
-.root {
+#root {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -23,8 +23,8 @@
   border-radius: 3px;
 }
 
-.image-thumbnail:hover{
-    opacity: 0.7;  
+.image-thumbnail:hover {
+  opacity: .7;
 }
 
 .btn-ctr {
@@ -32,6 +32,7 @@
   margin-top: 10px;
   font-size: 30px;
 }
+
 #modal {
   display: none;
   position: fixed;
@@ -44,40 +45,91 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-img{
-  width:900px;
-  height: auto;
-  z-index: 2;
+.image-ctr {
+  display: flex;
+  justify-content: center;
 }
+
+.image-modal {
+  height: auto;
+  width: 300px;
+  margin-top: 40px;
+  border-radius: 3px;
+}
+  .image-modal-tall {
+    max-height: 400px;
+    width: auto;
+  }
+
+#close-btn {
+  color: rgb(223, 223, 223);
+  position: absolute;
+  left: 25px;
+  font-size: 30px;
+}
+
 @media screen and (min-width: 768px) {
   .header-title {
     font-size: 60px;
   }
+
   .image-thumbnail {
     height: auto;
     width: 550px;
     margin: 30px;
   }
+
+  .image-modal {
+    height: auto;
+    width: 600px;
+  }
+    .image-modal-tall {
+      max-height: 700px;
+      width: auto;
+    }
 }
+
 @media screen and (min-width: 1024px) {
   .header-title {
     font-size: 80px;
   }
+
   .image-thumbnail {
     height: auto;
     width: 750px;
     margin: 35px;
   }
+
+  .image-modal {
+    height: auto;
+    width: 800px;
+  }
+   .image-modal-tall {
+     max-height: 900px;
+     width: auto;
+   }
 }
 
 @media screen and (min-width: 1366px) {
-#root{
-  flex-direction: row;
-  justify-content: center;
-}
+  #root {
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .image-thumbnail {
     height: auto;
     width: 600px;
     margin: 40px;
+  }
+
+  .image-modal {
+    height: auto;
+
+    width: 900px;
+  }
+
+  .image-modal-tall {
+    max-height: 800px;
+    width: auto;
   }
 }

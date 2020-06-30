@@ -10,26 +10,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Coding Challenge</title>
-  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/reset.css">
   <link rel="stylesheet" href="/main.css">
   <script></script>
 </head>
-
 <body class='body'>
-
-  <header><h1 class='header-title'>Coding Challenge</h1></header>
+  <header>
+    <h1 class='header-title'>Coding Challenge</h1>
+  </header>
   <main>
     <div class='btn-ctr'>
-    <a href="javascript:prevPage()" id="prevBttn">Prev</a>
-    <span id="page"></span>
-    <a href="javascript:nextPage()" id="nextBttn">Next</a>
-  </div>
-    <div class='root'id="root"></div>
+      <a href='javascript:prevPage()' id='prev-btn'>Prev</a>
+      <span id='page-number'></span>
+      <a href='javascript:nextPage()' id='next-btn'>Next</a>
+    </div>
+    <div id='root'></div>
     <div id='modal'>
       <span id='close-btn'>X</span>
-
+        <div class='image-ctr'>
+      <img id='modal-img'>
+    </div>
     </div>
   </main>
   <script src='/index.js' async defer></script>
