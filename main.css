@@ -1,0 +1,156 @@
+.body {
+  background-color: rgb(#F7F7F7);
+  font-family: 'Merriweather',
+    serif;
+}
+
+.header {
+  background-color: #191919;
+  color: #F7F7F7;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 40px;
+  padding-bottom: 3px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.image-thumbnail {
+  display: block;
+  height: auto;
+  width: 250px;
+  margin: 20px;
+  border: 5px #6B717E solid;
+  border-radius: 3px;
+}
+
+.image-thumbnail:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.btn-ctr {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.image-ctr {
+  display: flex;
+  justify-content: center;
+}
+
+.image-modal {
+  height: auto;
+  width: 300px;
+  margin-top: 40px;
+  border-radius: 3px;
+}
+
+.image-modal-tall {
+  max-height: 400px;
+  width: auto;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+#close-btn {
+  color: rgb(32, 32, 32);
+  background-color: rgb(245, 245, 245);
+  border-radius: 100%;
+  position: absolute;
+  left: 25px;
+  font-size: 30px;
+  padding: 0 10px;
+}
+
+#close-btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .header-title {
+    font-size: 60px;
+  }
+
+  .image-thumbnail {
+    height: auto;
+    width: 550px;
+    margin: 30px;
+  }
+
+  .image-modal {
+    height: auto;
+    width: 600px;
+  }
+
+  .image-modal-tall {
+    max-height: 700px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header-title {
+    font-size: 80px;
+  }
+
+  .image-thumbnail {
+    height: auto;
+    width: 750px;
+    margin: 35px;
+  }
+
+  .image-modal {
+    height: auto;
+    width: 800px;
+  }
+
+  .image-modal-tall {
+    max-height: 900px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  #root {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .image-thumbnail {
+    height: auto;
+    width: 600px;
+    margin: 40px;
+  }
+
+  .image-modal {
+    height: auto;
+
+    width: 900px;
+  }
+
+  .image-modal-tall {
+    max-height: 800px;
+    width: auto;
+  }
+}
