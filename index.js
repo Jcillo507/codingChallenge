@@ -22,6 +22,7 @@ const createPage = (page) => {
   const pageNumber = document.getElementById('page-number')
   const modal = document.getElementById('modal')
   const modalImg = document.getElementById('modal-img')
+  const closeBtn = document.getElementById('close-btn')
 
   if (page < 1) page = 1
   if (page > numPages()) page = numPages()
@@ -30,14 +31,12 @@ const createPage = (page) => {
 
   for (let i = (page - 1) * imagesPerPage; i < (page * imagesPerPage) && i < imageData.length; i++) {
     const createImg = document.createElement('img')
-
     createImg.src = imageData[i].urls.full
     createImg.setAttribute('class', 'image-thumbnail')
     createImg.setAttribute('id', imageData[i].id)
     createImg.setAttribute('alt', imageData[i].alt_description)
     root.appendChild(createImg)
     const getImage = document.getElementById(imageData[i].id)
-
     getImage.addEventListener('click', () => {
       modal.style.display = 'block'
       modalImg.src = imageData[i].urls.full
@@ -47,12 +46,11 @@ const createPage = (page) => {
         modalImg.setAttribute('class', 'image-modal')
       }
     })
-    const closeBtn = document.getElementById('close-btn')
-
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none'
-    })
   }
+  
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none'
+  })
 
   pageNumber.innerHTML = `${page} of ${numPages()} pages`
 
