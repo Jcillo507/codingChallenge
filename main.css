@@ -1,7 +1,11 @@
 .body {
   background-color: rgb(245, 245, 245);
+  font-family: 'Noto Sans SC',
+    sans-serif;
 }
-
+.header{
+  border-bottom: 2px black solid;
+}
 .header-title {
   text-align: center;
   font-size: 40px;
@@ -56,16 +60,21 @@
   margin-top: 40px;
   border-radius: 3px;
 }
-  .image-modal-tall {
-    max-height: 400px;
-    width: auto;
-  }
+
+.image-modal-tall {
+  max-height: 400px;
+  width: auto;
+  border-radius: 3px;
+}
 
 #close-btn {
-  color: rgb(223, 223, 223);
+  color: rgb(32, 32, 32);
+  background-color: rgb(245, 245, 245);
+  border-radius: 100%;
   position: absolute;
   left: 25px;
   font-size: 30px;
+  padding: 0 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -83,10 +92,11 @@
     height: auto;
     width: 600px;
   }
-    .image-modal-tall {
-      max-height: 700px;
-      width: auto;
-    }
+
+  .image-modal-tall {
+    max-height: 700px;
+    width: auto;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -104,10 +114,11 @@
     height: auto;
     width: 800px;
   }
-   .image-modal-tall {
-     max-height: 900px;
-     width: auto;
-   }
+
+  .image-modal-tall {
+    max-height: 900px;
+    width: auto;
+  }
 }
 
 @media screen and (min-width: 1366px) {
