@@ -86,3 +86,4 @@ const nextPage = () => {
 }
 
 Promise.all([call1, call2]).then(() => createPage(1))
+
