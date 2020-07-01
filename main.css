@@ -1,14 +1,18 @@
 .body {
-  background-color: rgb(245, 245, 245);
-  font-family: 'Noto Sans SC',
-    sans-serif;
+  background-color: rgb(#F7F7F7);
+  font-family: 'Merriweather',
+    serif;
 }
-.header{
-  border-bottom: 2px black solid;
+
+.header {
+  background-color: #191919;
+  color: #F7F7F7;
 }
+
 .header-title {
   text-align: center;
   font-size: 40px;
+  padding-bottom: 2px;
 }
 
 #root {
@@ -23,12 +27,13 @@
   height: auto;
   width: 250px;
   margin: 20px;
-  border: 5px rgb(92, 90, 90) solid;
+  border: 5px #6B717E solid;
   border-radius: 3px;
 }
 
 .image-thumbnail:hover {
   opacity: .7;
+  cursor: pointer;
 }
 
 .btn-ctr {
@@ -64,6 +69,7 @@
 .image-modal-tall {
   max-height: 400px;
   width: auto;
+  margin-top: 10px;
   border-radius: 3px;
 }
 
@@ -75,6 +81,10 @@
   left: 25px;
   font-size: 30px;
   padding: 0 10px;
+}
+
+#close-btn:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

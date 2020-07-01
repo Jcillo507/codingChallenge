@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Jcillo507/codingChallenge#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sass": "^1.26.9"
   },
   "devDependencies": {
     "eslint": "^7.3.1",
